@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home — C72 RFID</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:15</span>
+          <span>C72 · 78%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01</span>
+          <span class="badge badge-online">Online</span>
+          <span class="dim">Rahul</span>
+        </div>
+        <div class="screen">
+          <div class="screen-title">Home</div>
+          <p class="screen-sub">What do you need to do?</p>
+
+          <p class="section-label">Tag &amp; identity</p>
+          <div class="grid-tiles">
+            <a class="tile" href="map.html">
+              <span class="tile-ico">🔗</span>
+              <span class="tile-label">Map RFID</span>
+              <span class="tile-desc">EAN → RFID → SKU</span>
+            </a>
+            <a class="tile" href="bulk-map.html">
+              <span class="tile-ico">📦</span>
+              <span class="tile-label">Bulk map</span>
+              <span class="tile-desc">Carton / tray</span>
+            </a>
+            <a class="tile" href="delink.html">
+              <span class="tile-ico">🔓</span>
+              <span class="tile-label">De-link</span>
+              <span class="tile-desc">Wrong mapping</span>
+            </a>
+            <a class="tile" href="search.html">
+              <span class="tile-ico">🔍</span>
+              <span class="tile-label">Search</span>
+              <span class="tile-desc">Tag → product</span>
+            </a>
+          </div>
+
+          <p class="section-label">Find &amp; count</p>
+          <div class="grid-tiles">
+            <a class="tile" href="locate.html">
+              <span class="tile-ico">📍</span>
+              <span class="tile-label">Locate</span>
+              <span class="tile-desc">SKU → bins</span>
+            </a>
+            <a class="tile" href="count.html">
+              <span class="tile-ico">📊</span>
+              <span class="tile-label">Stock count</span>
+              <span class="tile-desc">Full / cycle</span>
+            </a>
+          </div>
+
+          <p class="section-label">Warehouse</p>
+          <div class="grid-tiles">
+            <a class="tile" href="inward.html">
+              <span class="tile-ico">⬇️</span>
+              <span class="tile-label">Inward</span>
+              <span class="tile-desc">GRN receive</span>
+            </a>
+            <a class="tile" href="putaway.html">
+              <span class="tile-ico">📥</span>
+              <span class="tile-label">Putaway</span>
+              <span class="tile-desc">RFID → bin</span>
+            </a>
+            <a class="tile" href="pick.html">
+              <span class="tile-ico">🛒</span>
+              <span class="tile-label">Picking</span>
+              <span class="tile-desc">Order scan</span>
+            </a>
+            <a class="tile" href="transfer.html">
+              <span class="tile-ico">🚚</span>
+              <span class="tile-label">Transfer</span>
+              <span class="tile-desc">WH → store</span>
+            </a>
+          </div>
+        </div>
+        <nav class="bottom-nav">
+          <a class="active" href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a href="delink.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>App home</h2>
+        <ol>
+          <li>Operator lands here after login with <strong>site context</strong> set.</li>
+          <li>Tiles group: <strong>identity</strong>, <strong>find/count</strong>, <strong>warehouse moves</strong>.</li>
+          <li>Bottom nav for the four most-used actions.</li>
+        </ol>
+        <p class="next"><strong>Real system:</strong> Roles hide tiles (e.g. operator cannot approve counts).</p>
+      </aside>
+    </div>
+  </body>
+</html>

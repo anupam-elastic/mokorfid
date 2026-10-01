@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard — RFID Admin</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Moko<span>RFID</span> Admin</div>
+      <nav class="sidebar-nav">
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a href="locations.html">Locations</a>
+        <a href="users.html">Users</a>
+        <a href="devices.html">Devices</a>
+        <a href="count-tasks.html">Count tasks</a>
+        <a href="integration-logs.html">Integration logs</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="../index.html" style="color: var(--text-muted)">← Prototype hub</a>
+      </div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-top">
+        <h1>Dashboard</h1>
+        <div class="user-chip"><span class="badge badge-ok">Admin</span> Priya · Ops</div>
+      </header>
+      <div class="admin-content">
+        <div class="flow-note">
+          <strong>Admin portal</strong> manages masters, devices, count approvals and integration health.
+          Operators work on the C72 app; supervisors approve here.
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">Counts pending</div>
+            <div class="kpi-value" style="color: var(--amber)">3</div>
+            <div class="kpi-hint">Awaiting supervisor</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Sync errors</div>
+            <div class="kpi-value" style="color: var(--danger)">2</div>
+            <div class="kpi-hint">Last 24h · Unicommerce</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Devices online</div>
+            <div class="kpi-value" style="color: var(--teal)">12</div>
+            <div class="kpi-hint">1 blocked</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Mapped tags</div>
+            <div class="kpi-value">48.2k</div>
+            <div class="kpi-hint">Active mappings</div>
+          </div>
+        </div>
+        <div class="split-2">
+          <div class="panel">
+            <div class="panel-head"><h2>Recent count tasks</h2><a href="count-tasks.html" class="btn btn-ghost">View all</a></div>
+            <table class="data">
+              <thead>
+                <tr><th>ID</th><th>Site</th><th>Type</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>#124</td><td>WH-01</td><td>Cycle</td><td><span class="badge badge-pend">Review</span></td></tr>
+                <tr><td>#123</td><td>ST-05</td><td>Full</td><td><span class="badge badge-ok">Approved</span></td></tr>
+                <tr><td>#122</td><td>WH-01</td><td>Location</td><td><span class="badge badge-pend">In progress</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Integration queue</h2><a href="integration-logs.html" class="btn btn-ghost">Logs</a></div>
+            <table class="data">
+              <thead>
+                <tr><th>System</th><th>Event</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>POSx</td><td>Sale RFID</td><td><span class="badge badge-ok">Success</span></td></tr>
+                <tr><td>Unicommerce</td><td>Count variance</td><td><span class="badge badge-fail">Failed</span></td></tr>
+                <tr><td>Unicommerce</td><td>GRN submit</td><td><span class="badge badge-pend">Retry 2</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

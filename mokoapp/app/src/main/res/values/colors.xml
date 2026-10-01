@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#F4F6F5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="ink">#14201B</color>
+    <color name="muted">#6B7A73</color>
+    <color name="teal">#0F7A5A</color>
+    <color name="teal_soft">#E6F5EF</color>
+    <color name="amber">#C48A00</color>
+    <color name="amber_border">#E6C35C</color>
+    <color name="danger">#B42318</color>
+    <color name="online">#0F7A5A</color>
+    <color name="offline">#98A29C</color>
+    <color name="scan_border">#0F7A5A</color>
+    <color name="launcher_bg">#0F7A5A</color>
+</resources>

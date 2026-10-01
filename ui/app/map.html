@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Map RFID — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:16</span>
+          <span>C72 · 78%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01 · Inward dock</span>
+          <span class="badge badge-online">Online</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+            <a class="btn btn-ghost btn-sm" href="bulk-map.html">Bulk</a>
+          </div>
+          <div class="screen-title">Map RFID</div>
+          <p class="screen-sub">Link USN → RFID → SKU</p>
+
+          <div class="step-pills">
+            <div class="step-pill done">1 EAN</div>
+            <div class="step-pill current">2 RFID</div>
+            <div class="step-pill">3 Save</div>
+          </div>
+
+          <div class="card card-sku">
+            <div class="sku-thumb">🧳</div>
+            <div class="sku-meta">
+              <h3>Cabin Bag 20"</h3>
+              <div class="sku-code">BAG001</div>
+              <div class="attrs">
+                <span class="chip">EAN 890123456</span>
+                <span class="chip">Black</span>
+                <span class="chip">Single</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="scan-zone active">
+            <div class="scan-ico">📡</div>
+            <p><strong>Pull trigger</strong> — scan RFID tag</p>
+            <p class="hint">Single-tag mode · strongest signal only</p>
+          </div>
+
+          <div class="card">
+            <div class="dim" style="font-size: 11px; margin-bottom: 4px">Last read (preview)</div>
+            <div class="mono" style="font-size: 12px; color: var(--teal)">E280689400123456</div>
+            <div class="muted" style="font-size: 12px; margin-top: 4px">USN will be: USN000123</div>
+          </div>
+
+          <div class="alert alert-success">Tag free — ready to map to BAG001</div>
+
+          <a class="btn btn-primary btn-block mt-auto" href="home.html">Save mapping</a>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a class="active" href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a href="delink.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Mapping flow</h2>
+        <ol>
+          <li>Scan <strong>EAN barcode</strong> on product/box.</li>
+          <li>App shows SKU, size, colour, pack type.</li>
+          <li>Scan <strong>RFID</strong> on the physical unit.</li>
+          <li>If tag already mapped → <strong>block</strong> + show current SKU.</li>
+          <li>Else save <strong>USN ↔ RFID ↔ SKU</strong> + location + audit.</li>
+        </ol>
+        <p class="next"><strong>Sets:</strong> After EAN, app expects 2 or 3 child tags before save.</p>
+      </aside>
+    </div>
+  </body>
+</html>

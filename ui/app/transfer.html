@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transfer — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:45</span>
+          <span>C72 · 68%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01 → ST-05</span>
+          <span class="badge badge-amber">In transit</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+          </div>
+          <div class="screen-title">Stock transfer</div>
+          <p class="screen-sub">Dispatch WH · receive store</p>
+
+          <div class="step-pills">
+            <div class="step-pill done">Pick</div>
+            <div class="step-pill done">Dispatch</div>
+            <div class="step-pill current">Transit</div>
+            <div class="step-pill">Receive</div>
+          </div>
+
+          <div class="card">
+            <div style="display: grid; gap: 8px; font-size: 13px">
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">Transfer</span>
+                <span class="mono">TO-ST05-0192</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">From</span>
+                <span>WH-01</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">To</span>
+                <span>ST-05 · Bandra</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">Units</span>
+                <span class="mono" style="color: var(--teal)">4 RFID</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">Status</span>
+                <span class="badge badge-amber">IN TRANSIT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="list">
+            <div class="list-item">
+              <div>
+                <div class="epc">E280…3456 · BAG001</div>
+                <div class="dim" style="font-size: 11px">Left WH-01 · awaiting store scan</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                <div class="epc">E280…3458 · BAG001</div>
+                <div class="dim" style="font-size: 11px">Left WH-01 · awaiting store scan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-success" style="font-size: 12px">
+            At store: receive scan updates location. Sets split to singles for POSx.
+          </div>
+
+          <a class="btn btn-teal btn-block mt-auto" href="home.html">Simulate store receive</a>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a class="active" href="transfer.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Transfer</h2>
+        <ol>
+          <li><strong>Dispatch</strong> scan at warehouse → status IN TRANSIT.</li>
+          <li><strong>Receive</strong> scan at store → location = store.</li>
+          <li>Sets: on store receive, children re-link to <strong>single SKUs</strong>.</li>
+          <li>Unicommerce + POSx updated so counts don’t flag sold/transit as missing.</li>
+        </ol>
+        <p class="next"><strong>Sale:</strong> POSx bill marks RFID SOLD in real time (or ≤2h).</p>
+      </aside>
+    </div>
+  </body>
+</html>

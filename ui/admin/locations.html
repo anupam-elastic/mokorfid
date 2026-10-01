@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Locations — RFID Admin</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Moko<span>RFID</span> Admin</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a class="active" href="locations.html">Locations</a>
+        <a href="users.html">Users</a>
+        <a href="devices.html">Devices</a>
+        <a href="count-tasks.html">Count tasks</a>
+        <a href="integration-logs.html">Integration logs</a>
+      </nav>
+      <div class="sidebar-footer"><a href="../index.html" style="color: var(--text-muted)">← Prototype hub</a></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-top">
+        <h1>Location master</h1>
+        <div class="user-chip"><span class="badge badge-ok">Admin</span> Priya</div>
+      </header>
+      <div class="admin-content">
+        <div class="flow-note">
+          Hierarchy: <strong>Site → Area → Zone/Rack → Bin/Shelf</strong>. Synced from Unicommerce / POSx on change.
+          Every map, putaway and count uses this tree.
+        </div>
+        <div class="split-2">
+          <div class="panel">
+            <div class="panel-head"><h2>Tree · WH-01</h2><button class="btn btn-ghost">+ Add bin</button></div>
+            <div class="tree">
+              <div class="site">WH-01 · Mumbai Warehouse</div>
+              <div class="area">↳ Back of house</div>
+              <div class="zone">↳ Rack A</div>
+              <div class="bin">↳ A-03-02</div>
+              <div class="bin">↳ A-03-04</div>
+              <div class="zone">↳ Rack B</div>
+              <div class="bin">↳ B-01-01</div>
+              <div class="area">↳ Inward dock</div>
+              <div class="zone">↳ Dock Bay 1</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>Tree · ST-05</h2></div>
+            <div class="tree">
+              <div class="site">ST-05 · Bandra Store</div>
+              <div class="area">↳ Front of house</div>
+              <div class="zone">↳ Floor Zone 1</div>
+              <div class="bin">↳ Shelf F1-A</div>
+              <div class="area">↳ Back of house</div>
+              <div class="zone">↳ Stockroom</div>
+              <div class="bin">↳ BR-02</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

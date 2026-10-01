@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login — C72 RFID</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:14</span>
+          <span>C72 · 78%</span>
+        </div>
+        <div class="screen">
+          <div class="login-brand">
+            <div class="logo">Moko<span>RFID</span></div>
+            <p>Warehouse &amp; retail item-level inventory</p>
+          </div>
+          <div class="field">
+            <label>User ID</label>
+            <input type="text" value="rahul.ops" readonly />
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" value="••••••••" readonly />
+          </div>
+          <div class="field">
+            <label>Device</label>
+            <input class="mono" type="text" value="C72-05 · SN-882341" readonly />
+          </div>
+          <div class="field">
+            <label>Site</label>
+            <select>
+              <option>WH-01 · Mumbai Warehouse</option>
+              <option>ST-05 · Bandra Store</option>
+            </select>
+          </div>
+          <div class="spacer"></div>
+          <a class="btn btn-primary btn-block" href="home.html">Sign in</a>
+          <p class="dim" style="text-align: center; font-size: 11px; margin-top: 8px">
+            Login is per user + per device. Lost devices can be blocked remotely.
+          </p>
+        </div>
+      </div>
+      <aside class="flow-panel">
+        <h2>How login works</h2>
+        <ol>
+          <li><strong>Operator</strong> signs in with user credentials.</li>
+          <li>App binds session to this <strong>C72 device ID</strong>.</li>
+          <li>User picks active <strong>site</strong> (warehouse or store).</li>
+          <li>All scans/audit logs record user + device + site.</li>
+        </ol>
+        <p class="next"><strong>Real system:</strong> Backend JWT + device whitelist; blocked devices cannot sync.</p>
+      </aside>
+    </div>
+  </body>
+</html>

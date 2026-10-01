@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>De-link — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:20</span>
+          <span>C72 · 75%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01</span>
+          <span class="badge badge-online">Online</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+          </div>
+          <div class="screen-title">De-link RFID</div>
+          <p class="screen-sub">Free a tag to re-map</p>
+
+          <div class="scan-zone">
+            <div class="scan-ico">📡</div>
+            <p>Tag scanned</p>
+            <p class="hint mono" style="color: var(--teal)">E280689400123456</p>
+          </div>
+
+          <div class="card card-sku">
+            <div class="sku-thumb">🧳</div>
+            <div class="sku-meta">
+              <h3>Currently linked</h3>
+              <div class="sku-code">BAG001</div>
+              <div class="attrs">
+                <span class="chip">USN000123</span>
+                <span class="chip">In stock</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="section-label">Reason</p>
+          <div class="reason-list">
+            <label><input type="radio" name="r" checked /> Wrong SKU</label>
+            <label><input type="radio" name="r" /> Damaged tag</label>
+            <label><input type="radio" name="r" /> Tag replaced</label>
+            <label><input type="radio" name="r" /> Returned to vendor</label>
+          </div>
+
+          <div class="alert alert-warn">Today: 8 de-links · supervisor needed after threshold</div>
+
+          <a class="btn btn-danger btn-block mt-auto" href="map.html">De-link &amp; re-map</a>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a class="active" href="delink.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>De-link</h2>
+        <ol>
+          <li>Scan RFID (or pick from SKU list).</li>
+          <li>App shows linked SKU, USN, pack type.</li>
+          <li>Pick a <strong>reason</strong> → confirm.</li>
+          <li>Old link stays in <strong>history</strong>; tag becomes free.</li>
+          <li>Optional jump straight to re-map.</li>
+        </ol>
+        <p class="next"><strong>Rules:</strong> Sold/dispatched need supervisor. Bulk de-link = batch approval.</p>
+      </aside>
+    </div>
+  </body>
+</html>

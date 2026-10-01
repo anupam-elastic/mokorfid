@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Users — RFID Admin</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Moko<span>RFID</span> Admin</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a href="locations.html">Locations</a>
+        <a class="active" href="users.html">Users</a>
+        <a href="devices.html">Devices</a>
+        <a href="count-tasks.html">Count tasks</a>
+        <a href="integration-logs.html">Integration logs</a>
+      </nav>
+      <div class="sidebar-footer"><a href="../index.html" style="color: var(--text-muted)">← Prototype hub</a></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-top">
+        <h1>Users &amp; roles</h1>
+        <div class="user-chip"><span class="badge badge-ok">Admin</span> Priya</div>
+      </header>
+      <div class="admin-content">
+        <div class="flow-note">
+          <strong>Operator</strong> — scan, map, count, search.
+          <strong>Supervisor</strong> — approve counts &amp; sensitive de-links.
+          <strong>Admin</strong> — masters, devices, reader settings, reports.
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Users</h2>
+            <button class="btn btn-primary">+ Invite user</button>
+          </div>
+          <table class="data">
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>Role</th><th>Sites</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rahul</td><td>rahul.ops@moko.in</td>
+                <td><span class="badge badge-info">Operator</span></td>
+                <td>WH-01</td>
+                <td><span class="badge badge-ok">Active</span></td>
+              </tr>
+              <tr>
+                <td>Neha</td><td>neha.sup@moko.in</td>
+                <td><span class="badge badge-pend">Supervisor</span></td>
+                <td>WH-01, ST-05</td>
+                <td><span class="badge badge-ok">Active</span></td>
+              </tr>
+              <tr>
+                <td>Priya</td><td>priya.admin@moko.in</td>
+                <td><span class="badge badge-ok">Admin</span></td>
+                <td>All</td>
+                <td><span class="badge badge-ok">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

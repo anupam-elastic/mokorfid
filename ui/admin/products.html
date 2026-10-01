@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products — RFID Admin</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Moko<span>RFID</span> Admin</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a class="active" href="products.html">Products</a>
+        <a href="locations.html">Locations</a>
+        <a href="users.html">Users</a>
+        <a href="devices.html">Devices</a>
+        <a href="count-tasks.html">Count tasks</a>
+        <a href="integration-logs.html">Integration logs</a>
+      </nav>
+      <div class="sidebar-footer"><a href="../index.html" style="color: var(--text-muted)">← Prototype hub</a></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-top">
+        <h1>Product master</h1>
+        <div class="user-chip"><span class="badge badge-ok">Admin</span> Priya</div>
+      </header>
+      <div class="admin-content">
+        <div class="flow-note">
+          Synced from Unicommerce (daily + on-demand). <strong>Inactive SKUs cannot be newly mapped.</strong>
+          Sets store component single SKUs for store split without re-tagging.
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Products</h2>
+            <div class="toolbar">
+              <input type="search" placeholder="Search SKU / EAN…" value="BAG" />
+              <select><option>All pack types</option><option>Single</option><option>Set of 2</option><option>Set of 3</option></select>
+              <button class="btn btn-primary">Refresh from UC</button>
+            </div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>SKU</th><th>EAN</th><th>Name</th><th>Colour</th><th>Pack</th><th>Components</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="sku">BAG001</td>
+                <td class="mono">890123456</td>
+                <td>Cabin Bag 20"</td>
+                <td>Black</td>
+                <td>Single</td>
+                <td>1</td>
+                <td><span class="badge badge-ok">Active</span></td>
+              </tr>
+              <tr>
+                <td class="sku">SET3-1042</td>
+                <td class="mono">890998877</td>
+                <td>Travel Set of 3</td>
+                <td>Navy</td>
+                <td>Set of 3</td>
+                <td>CABIN / CHECKIN / LAPTOP</td>
+                <td><span class="badge badge-ok">Active</span></td>
+              </tr>
+              <tr>
+                <td class="sku">BAG005</td>
+                <td class="mono">890123499</td>
+                <td>Check-in 28"</td>
+                <td>Olive</td>
+                <td>Single</td>
+                <td>1</td>
+                <td><span class="badge badge-muted">Inactive</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

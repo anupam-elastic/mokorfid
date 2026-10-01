@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Search — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:22</span>
+          <span>C72 · 74%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01</span>
+          <span class="badge badge-online">Online</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+          </div>
+          <div class="screen-title">Search</div>
+          <p class="screen-sub">RFID tag → product details</p>
+
+          <div class="scan-zone active">
+            <div class="scan-ico">📡</div>
+            <p>Scan any RFID tag</p>
+            <p class="hint">Single-tag mode</p>
+          </div>
+
+          <div class="card card-sku">
+            <div class="sku-thumb">🧳</div>
+            <div class="sku-meta">
+              <h3>Cabin Bag 20"</h3>
+              <div class="sku-code">BAG001</div>
+              <div class="attrs">
+                <span class="chip">Black</span>
+                <span class="chip">MRP ₹4,999</span>
+                <span class="chip">Single</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div style="display: grid; gap: 8px; font-size: 13px">
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">EAN</span>
+                <span class="mono">890123456</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">USN</span>
+                <span class="mono">USN000123</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">RFID</span>
+                <span class="mono" style="color: var(--teal); font-size: 11px">E280…3456</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">Location</span>
+                <span>WH-01 / Rack A / A-03-02</span>
+              </div>
+              <div style="display: flex; justify-content: space-between">
+                <span class="muted">Status</span>
+                <span class="badge badge-online">In stock</span>
+              </div>
+            </div>
+          </div>
+
+          <a class="btn btn-ghost btn-block" href="locate.html">Open locate for BAG001</a>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a class="active" href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a href="delink.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Search vs Locate</h2>
+        <ol>
+          <li><strong>Search:</strong> you hold a tag → app tells you what product it is.</li>
+          <li>Shows SKU, EAN, USN, location, status (stock / sold / transit).</li>
+          <li>For sets: parent SKU + sibling child tags.</li>
+        </ol>
+        <p class="next"><strong>Locate</strong> is the reverse: SKU → list of all tagged units.</p>
+      </aside>
+    </div>
+  </body>
+</html>

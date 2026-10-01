@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stock Count — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:30</span>
+          <span>C72 · 70%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01 · Rack A</span>
+          <span class="badge badge-teal">Counting</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+            <span class="badge badge-info">Cycle</span>
+          </div>
+          <div class="screen-title">Count #124</div>
+          <p class="screen-sub">Bags · Rack A · Assigned Rahul</p>
+
+          <div class="stat-row">
+            <div class="stat matched">
+              <div class="num">495</div>
+              <div class="lbl">Matched</div>
+            </div>
+            <div class="stat missing">
+              <div class="num">5</div>
+              <div class="lbl">Missing</div>
+            </div>
+            <div class="stat extra">
+              <div class="num">2</div>
+              <div class="lbl">Extra</div>
+            </div>
+          </div>
+
+          <div class="card" style="text-align: center">
+            <div class="muted" style="font-size: 12px">Live reads (de-duped)</div>
+            <div class="mono" style="font-size: 28px; font-weight: 700; color: var(--teal); margin: 4px 0">
+              497
+            </div>
+            <div class="dim" style="font-size: 11px">Expected stock · 500</div>
+          </div>
+
+          <div class="alert alert-warn">1 incomplete set · SET3-1042 missing 1 child</div>
+
+          <p class="section-label">Variance sample</p>
+          <div class="list">
+            <div class="list-item">
+              <div style="flex: 1">
+                <div class="epc">Missing · E280…1122</div>
+                <div class="dim" style="font-size: 11px">Expected A-03-02 · BAG001</div>
+              </div>
+              <span class="badge badge-offline">Miss</span>
+            </div>
+            <div class="list-item">
+              <div style="flex: 1">
+                <div class="epc">Extra · E280…9988</div>
+                <div class="dim" style="font-size: 11px">Not on expected list</div>
+              </div>
+              <span class="badge badge-amber">Extra</span>
+            </div>
+          </div>
+
+          <div class="header-row mt-auto" style="gap: 8px">
+            <a class="btn btn-ghost" style="flex: 1" href="count.html">Re-scan</a>
+            <a class="btn btn-primary" style="flex: 1" href="../admin/count-tasks.html">Submit</a>
+          </div>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a class="active" href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a href="delink.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Count flow</h2>
+        <ol>
+          <li>Supervisor creates task (full / location / cycle).</li>
+          <li>Operator walks area; tags read in bulk, de-duped live.</li>
+          <li>Compare: matched, missing, extra, incomplete set.</li>
+          <li>Supervisor reviews → approve → posts to Unicommerce / POSx.</li>
+        </ol>
+        <p class="next"><strong>Submit</strong> in prototype opens Admin count tasks (approval).</p>
+      </aside>
+    </div>
+  </body>
+</html>

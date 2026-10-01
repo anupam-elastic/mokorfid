@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Integration logs — RFID Admin</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Moko<span>RFID</span> Admin</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a href="locations.html">Locations</a>
+        <a href="users.html">Users</a>
+        <a href="devices.html">Devices</a>
+        <a href="count-tasks.html">Count tasks</a>
+        <a class="active" href="integration-logs.html">Integration logs</a>
+      </nav>
+      <div class="sidebar-footer"><a href="../index.html" style="color: var(--text-muted)">← Prototype hub</a></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-top">
+        <h1>Integration queue &amp; logs</h1>
+        <div class="user-chip"><span class="badge badge-ok">Admin</span> Priya</div>
+      </header>
+      <div class="admin-content">
+        <div class="flow-note">
+          Unicommerce = warehouse/orders SoR · POSx = store sales SoR · RFID app owns tag-level data.
+          Sync real-time when APIs allow, else at least every <strong>2 hours</strong>. Failures queue + retry; ops fix from this screen.
+        </div>
+        <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr)">
+          <div class="kpi">
+            <div class="kpi-label">Pending</div>
+            <div class="kpi-value" style="color: var(--amber)">4</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Failed</div>
+            <div class="kpi-value" style="color: var(--danger)">2</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Success (24h)</div>
+            <div class="kpi-value" style="color: var(--success)">1,842</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Queue</h2>
+            <div class="toolbar">
+              <select>
+                <option>All systems</option>
+                <option>Unicommerce</option>
+                <option>POSx</option>
+              </select>
+              <select>
+                <option>All statuses</option>
+                <option>Pending</option>
+                <option>Failed</option>
+                <option>Success</option>
+              </select>
+              <button class="btn btn-ghost">Retry failed</button>
+            </div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>ID</th><th>System</th><th>Event</th><th>Retries</th><th>Status</th><th>Last error</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mono">#9012</td>
+                <td>Unicommerce</td>
+                <td>Count variance #124</td>
+                <td>3</td>
+                <td><span class="badge badge-fail">Failed</span></td>
+                <td>HTTP 503 · timeout</td>
+                <td><button class="btn btn-primary">Retry</button></td>
+              </tr>
+              <tr>
+                <td class="mono">#9011</td>
+                <td>Unicommerce</td>
+                <td>GRN PO-2026-8842</td>
+                <td>2</td>
+                <td><span class="badge badge-pend">Pending</span></td>
+                <td>—</td>
+                <td><button class="btn btn-ghost">View</button></td>
+              </tr>
+              <tr>
+                <td class="mono">#9010</td>
+                <td>POSx</td>
+                <td>Sale · EPC E280…3450</td>
+                <td>0</td>
+                <td><span class="badge badge-ok">Success</span></td>
+                <td>—</td>
+                <td><button class="btn btn-ghost">Payload</button></td>
+              </tr>
+              <tr>
+                <td class="mono">#9009</td>
+                <td>POSx</td>
+                <td>Set split → singles</td>
+                <td>0</td>
+                <td><span class="badge badge-ok">Success</span></td>
+                <td>—</td>
+                <td><button class="btn btn-ghost">Payload</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

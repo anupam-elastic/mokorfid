@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Count tasks — RFID Admin</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Moko<span>RFID</span> Admin</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a href="locations.html">Locations</a>
+        <a href="users.html">Users</a>
+        <a href="devices.html">Devices</a>
+        <a class="active" href="count-tasks.html">Count tasks</a>
+        <a href="integration-logs.html">Integration logs</a>
+      </nav>
+      <div class="sidebar-footer"><a href="../index.html" style="color: var(--text-muted)">← Prototype hub</a></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-top">
+        <h1>Count tasks &amp; approvals</h1>
+        <div class="user-chip"><span class="badge badge-pend">Supervisor</span> Neha</div>
+      </header>
+      <div class="admin-content">
+        <div class="flow-note">
+          Supervisor creates tasks → operators scan on C72 → variances reviewed here →
+          <strong>Approve</strong> posts results to Unicommerce / POSx. Link from app Submit opens this screen.
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Tasks</h2>
+            <button class="btn btn-primary">+ Create count task</button>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>ID</th><th>Type</th><th>Site / scope</th><th>Assigned</th>
+                <th>Matched</th><th>Missing</th><th>Extra</th><th>Status</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#124</td>
+                <td>Cycle</td>
+                <td>WH-01 · Rack A · Bags</td>
+                <td>Rahul</td>
+                <td>495</td>
+                <td style="color: var(--danger)">5</td>
+                <td style="color: var(--amber)">2</td>
+                <td><span class="badge badge-pend">Review</span></td>
+                <td>
+                  <button class="btn btn-ghost">Re-scan</button>
+                  <button class="btn btn-primary">Approve</button>
+                </td>
+              </tr>
+              <tr>
+                <td>#123</td>
+                <td>Full</td>
+                <td>ST-05 · All</td>
+                <td>Meera</td>
+                <td>2104</td>
+                <td>12</td>
+                <td>4</td>
+                <td><span class="badge badge-ok">Approved</span></td>
+                <td><button class="btn btn-ghost">Report</button></td>
+              </tr>
+              <tr>
+                <td>#122</td>
+                <td>Location</td>
+                <td>WH-01 · Bin A-03-02</td>
+                <td>Rahul</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="badge badge-info">In progress</span></td>
+                <td><button class="btn btn-ghost">Open</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Variance detail · #124</h2></div>
+          <table class="data">
+            <thead>
+              <tr><th>Result</th><th>RFID</th><th>SKU</th><th>Expected location</th><th>Note</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-fail">Missing</span></td>
+                <td class="epc">E280…1122</td>
+                <td class="sku">BAG001</td>
+                <td>A-03-02</td>
+                <td>Not read in session</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-pend">Extra</span></td>
+                <td class="epc">E280…9988</td>
+                <td class="sku">BAG005</td>
+                <td>—</td>
+                <td>Not on expected list</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-info">Incomplete set</span></td>
+                <td class="epc">SET3-1042</td>
+                <td class="sku">SET3-1042</td>
+                <td>Rack A</td>
+                <td>2 of 3 children found</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

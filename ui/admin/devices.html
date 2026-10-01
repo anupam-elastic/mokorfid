@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Devices — RFID Admin</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-brand">Moko<span>RFID</span> Admin</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="products.html">Products</a>
+        <a href="locations.html">Locations</a>
+        <a href="users.html">Users</a>
+        <a class="active" href="devices.html">Devices</a>
+        <a href="count-tasks.html">Count tasks</a>
+        <a href="integration-logs.html">Integration logs</a>
+      </nav>
+      <div class="sidebar-footer"><a href="../index.html" style="color: var(--text-muted)">← Prototype hub</a></div>
+    </aside>
+    <div class="admin-main">
+      <header class="admin-top">
+        <h1>C72 devices</h1>
+        <div class="user-chip"><span class="badge badge-ok">Admin</span> Priya</div>
+      </header>
+      <div class="admin-content">
+        <div class="flow-note">
+          Login is <strong>per user + per device</strong>. Lost handhelds can be <strong>blocked remotely</strong>
+          so they cannot sync. Reader power / RSSI cut-offs live here as admin settings (not hard-coded).
+        </div>
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Devices</h2>
+            <div class="toolbar">
+              <button class="btn btn-ghost">Reader settings</button>
+              <button class="btn btn-primary">+ Register device</button>
+            </div>
+          </div>
+          <table class="data">
+            <thead>
+              <tr><th>Code</th><th>Serial</th><th>Site</th><th>Last sync</th><th>Status</th><th></th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="sku">C72-05</td>
+                <td class="mono">SN-882341</td>
+                <td>WH-01</td>
+                <td>2 min ago</td>
+                <td><span class="badge badge-ok">Active</span></td>
+                <td><button class="btn btn-ghost">Block</button></td>
+              </tr>
+              <tr>
+                <td class="sku">C72-12</td>
+                <td class="mono">SN-882390</td>
+                <td>ST-05</td>
+                <td>18 min ago</td>
+                <td><span class="badge badge-ok">Active</span></td>
+                <td><button class="btn btn-ghost">Block</button></td>
+              </tr>
+              <tr>
+                <td class="sku">C72-03</td>
+                <td class="mono">SN-882201</td>
+                <td>WH-01</td>
+                <td>3 days ago</td>
+                <td><span class="badge badge-fail">Blocked</span></td>
+                <td><button class="btn btn-teal">Unblock</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h2>Reader settings (pilot)</h2></div>
+          <table class="data">
+            <thead>
+              <tr><th>Mode</th><th>Power</th><th>RSSI cut-off</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Single map / search</td><td>Low</td><td>−55 dBm</td><td>Strongest tag only</td></tr>
+              <tr><td>Bulk map</td><td>Low</td><td>−50 dBm</td><td>Unmapped-only filter</td></tr>
+              <tr><td>Area count</td><td>High</td><td>−70 dBm</td><td>Hundreds tags/sec</td></tr>
+              <tr><td>Find / proximity</td><td>Med→Low</td><td>Dynamic</td><td>Beep by RSSI</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

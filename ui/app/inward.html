@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inward — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:35</span>
+          <span>C72 · 72%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01 · Inward dock</span>
+          <span class="badge badge-online">Online</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+          </div>
+          <div class="screen-title">Inward (GRN)</div>
+          <p class="screen-sub">Receive against PO · flag short / excess</p>
+
+          <div class="step-pills">
+            <div class="step-pill done">PO</div>
+            <div class="step-pill current">Scan</div>
+            <div class="step-pill">Submit</div>
+          </div>
+
+          <div class="card">
+            <div style="font-size: 12px; color: var(--text-muted)">Purchase order</div>
+            <div class="mono" style="font-size: 16px; font-weight: 600; margin-top: 2px">PO-2026-8842</div>
+            <div class="muted" style="font-size: 12px; margin-top: 4px">Vendor · Tag Asia · Expected 120 units</div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat matched">
+              <div class="num">118</div>
+              <div class="lbl">Received</div>
+            </div>
+            <div class="stat missing">
+              <div class="num">2</div>
+              <div class="lbl">Short</div>
+            </div>
+            <div class="stat extra">
+              <div class="num">0</div>
+              <div class="lbl">Excess</div>
+            </div>
+          </div>
+
+          <div class="scan-zone active">
+            <div class="scan-ico">📦</div>
+            <p>Scan carton / unit RFIDs</p>
+            <p class="hint">Expected-list match · extras shown apart</p>
+          </div>
+
+          <a class="btn btn-primary btn-block mt-auto" href="putaway.html">Submit GRN → Putaway</a>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a class="active" href="inward.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Inward</h2>
+        <ol>
+          <li>Open GRN / PO from Unicommerce.</li>
+          <li>Bulk-scan received units against expected list.</li>
+          <li>Flag <strong>short</strong> or <strong>excess</strong>.</li>
+          <li>On submit → sync session to Unicommerce.</li>
+        </ol>
+        <p class="next"><strong>Next:</strong> Putaway assigns bins.</p>
+      </aside>
+    </div>
+  </body>
+</html>

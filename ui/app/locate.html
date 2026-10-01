@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Locate — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:24</span>
+          <span>C72 · 73%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01</span>
+          <span class="badge badge-online">Online</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+          </div>
+          <div class="screen-title">Locate</div>
+          <p class="screen-sub">SKU → units by bin · Find mode</p>
+
+          <div class="field">
+            <label>SKU / EAN / USN</label>
+            <input type="text" value="BAG001" readonly />
+          </div>
+
+          <div class="alert alert-warn" style="font-size: 12px">
+            Last seen A-03-02 older than last count — verify on floor
+          </div>
+
+          <p class="section-label">3 units at this site</p>
+          <div class="list">
+            <a class="list-item" href="#find" style="text-decoration: none">
+              <div style="flex: 1">
+                <div class="epc">E280…3456</div>
+                <div style="font-size: 12px; margin-top: 2px">Rack A · Bin A-03-02</div>
+              </div>
+              <span class="badge badge-teal">Find →</span>
+            </a>
+            <div class="list-item">
+              <div style="flex: 1">
+                <div class="epc">E280…3458</div>
+                <div style="font-size: 12px; margin-top: 2px">Rack A · Bin A-03-04</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <div style="flex: 1">
+                <div class="epc">E280…3460</div>
+                <div style="font-size: 12px; margin-top: 2px">Rack B · Bin B-01-01</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="find" class="card proximity">
+            <div class="header-row">
+              <strong style="font-size: 14px">Find mode</strong>
+              <span class="badge badge-amber">Proximity</span>
+            </div>
+            <p class="muted" style="font-size: 12px; margin-top: 4px">
+              Walk toward A-03-02 · beep speeds up as signal rises
+            </p>
+            <div class="proximity-bar"><div class="proximity-fill"></div></div>
+            <div style="text-align: center; font-size: 12px; color: var(--amber)">Signal strong · almost there</div>
+            <div class="beep-dots"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a class="active" href="locate.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Locate + Find</h2>
+        <ol>
+          <li>Type/scan SKU, EAN or USN.</li>
+          <li>List tagged units at <strong>current site</strong> (option: other sites).</li>
+          <li>Pick one unit → <strong>Find mode</strong>: RSSI bar + faster beep.</li>
+        </ol>
+        <p class="next"><strong>Sets:</strong> shows each child location; flags if split across bins.</p>
+      </aside>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Moko RFID</string>
+    <string name="header_title">Moko RFID</string>
+    <string name="scan_hint_title">Pull trigger — scan RFID tag</string>
+    <string name="scan_hint_sub">Single-tag mode · strongest signal only</string>
+    <string name="last_read">Last read</string>
+    <string name="epc_placeholder">—</string>
+    <string name="rssi_label">RSSI</string>
+    <string name="btn_scan">Scan RFID</string>
+    <string name="btn_clear">Clear</string>
+    <string name="status_connecting">Connecting UHF…</string>
+    <string name="status_online">UHF ON</string>
+    <string name="status_offline">UHF OFF</string>
+    <string name="status_scanning">Scanning…</string>
+    <string name="toast_init_fail">UHF init failed. Run on a C72 device.</string>
+    <string name="toast_not_ready">UHF not ready</string>
+    <string name="toast_no_tag">No tag found. Hold closer and try again.</string>
+    <string name="toast_busy">Scan already running</string>
+</resources>

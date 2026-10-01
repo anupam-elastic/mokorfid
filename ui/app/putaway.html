@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Putaway — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:38</span>
+          <span>C72 · 71%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01 · Back of house</span>
+          <span class="badge badge-online">Online</span>
+        </div>
+        <div class="screen">
+          <div class="header-row">
+            <a class="back-link" href="home.html">← Home</a>
+          </div>
+          <div class="screen-title">Putaway</div>
+          <p class="screen-sub">Scan units → scan bin → location saved</p>
+
+          <div class="step-pills">
+            <div class="step-pill done">RFID</div>
+            <div class="step-pill current">Bin</div>
+            <div class="step-pill">Done</div>
+          </div>
+
+          <div class="card">
+            <div class="muted" style="font-size: 12px">Units selected</div>
+            <div class="mono" style="font-size: 20px; font-weight: 700; color: var(--teal)">8</div>
+            <div class="dim" style="font-size: 11px">BAG001 · from inward dock</div>
+          </div>
+
+          <div class="scan-zone active">
+            <div class="scan-ico">🏷️</div>
+            <p>Scan bin barcode / RFID location</p>
+            <p class="hint mono" style="margin-top: 8px; color: var(--amber)">Target · A-03-02</p>
+          </div>
+
+          <div class="alert alert-success">Ready: 8 × BAG001 → Rack A / A-03-02</div>
+
+          <a class="btn btn-teal btn-block mt-auto" href="home.html">Confirm putaway</a>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a class="active" href="putaway.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Putaway</h2>
+        <ol>
+          <li>Scan product RFID(s).</li>
+          <li>Scan destination <strong>bin</strong>.</li>
+          <li>Each mapping gets updated <strong>location_id</strong>.</li>
+          <li>Stock movement logged (PUTAWAY).</li>
+        </ol>
+        <p class="next"><strong>Locate</strong> later uses this bin as last known location.</p>
+      </aside>
+    </div>
+  </body>
+</html>
