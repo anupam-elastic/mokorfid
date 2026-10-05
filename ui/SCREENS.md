@@ -5,7 +5,7 @@ Open hub: [`index.html`](index.html) → **C72 Handheld App** ya **Web Admin Por
 
 > Abhi ye **static HTML/CSS mockups** hain — real barcode/RFID scan, backend, Android SDK nahi.
 
-**Core identity chain:** `EAN → SKU` (product master) · `USN ↔ RFID ↔ SKU` (unit mapping)
+**Core identity chain:** Factory `USN` (already → SKU in Unicommerce) · Map links `USN ↔ RFID` · `EAN → SKU` remains product master
 
 ---
 
@@ -22,7 +22,7 @@ Open hub: [`index.html`](index.html) → **C72 Handheld App** ya **Web Admin Por
 ```
 Login → Home
   → Inward (GRN)
-  → Map / Bulk map (RFID link)
+  → Map / Bulk map (USN ↔ RFID link)
   → Putaway (bin)
   → Search / Locate / Count (ops)
   → Pick → Transfer (WH → Store)
@@ -86,39 +86,39 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ## 3. `map.html` — Map RFID (single)
 
-**Kaam:** Ek unit pe `USN ↔ RFID ↔ SKU` link.
+**Kaam:** Factory USN ko physical RFID se link karna. SKU Unicommerce se aata hai.
 
-**Steps:** `1 EAN` → `2 RFID` → `3 Save`
+**Steps:** `1 USN` → `2 RFID` → `3 Save`
 
 **Flow:**
-1. EAN barcode scan → product card (SKU, colour, pack)
-2. RFID trigger scan
-3. Already mapped? → **block**
-4. Free? → USN auto-preview → Save
-5. DB: USN + RFID + SKU + location + audit
+1. USN barcode scan (factory label — pehle se generated)
+2. Backend → Unicommerce API → product card (SKU, colour, pack, EAN)
+3. RFID trigger scan
+4. USN already linked ya RFID already mapped? → **block**
+5. Free? → Save `USN ↔ RFID` (+ SKU snapshot) + location + audit
 
 **Sets:** Pack type set hai to 2/3 child tags complete hone ke baad hi Save.
 
-**USN:** Operator type nahi karta — system allocate karta hai.
+**USN:** App allocate nahi karta — factory / Unicommerce se aata hai, pehle se SKU se linked.
 
 ---
 
 ## 4. `bulk-map.html` — Bulk map
 
-**Kaam:** Ek EAN, kai RFID (carton) — ek saath map.
+**Kaam:** Carton / tray pe kai units — har unit ke liye `USN → RFID` pair, phir ek save.
 
 **Screen pe:**
-- Product + Expected N + Carton ID
-- Found / Expected / Nearby
-- Review list (tick/untick; already-mapped skip)
-- **Map N tags**
+- Session product (last USN ka SKU) + Carton ID
+- Paired / Expected / Pending
+- Pair list (USN ↔ EPC; tick/untick; already-mapped skip)
+- **Save N pairs**
 
 **Flow:**
-1. Ek EAN (carton SKU)
-2. Low reader power — stray kam
-3. Unmapped tags collect
-4. Nearby / already-mapped hatao
-5. Ek save → N rows (`N USN ↔ N RFID ↔ same SKU`)
+1. Har unit: USN barcode → backend SKU fetch
+2. Us unit ka RFID (low power — stray kam)
+3. List me `USN ↔ RFID` pair add
+4. Already-mapped USN/RFID skip; bad pairs untick
+5. Ek save → N rows
 
 **Also:** Vendor pre-tagged stock → admin CSV upload.
 
@@ -196,12 +196,12 @@ Bottom nav: Home · Map · Search · Count · More.
 **Steps:** `PO` → `Scan` → `Submit`
 
 **Flow:**
-1. PO open (Unicommerce)
-2. Carton/unit RFID bulk scan vs expected
+1. PO open (Unicommerce) — expected USNs from factory
+2. Scan received unit USNs (or already-mapped RFIDs) vs expected
 3. Received / Short / Excess
 4. Submit → UC sync → Putaway
 
-**Note:** Inward = receive verify. Full USN↔RFID↔SKU link **Map** pe hoti hai (unless vendor CSV pehle se mapped).
+**Note:** Inward = receive verify. `USN ↔ RFID` link **Map** pe hoti hai (unless vendor CSV pehle se mapped).
 
 ---
 
@@ -280,7 +280,7 @@ Operators C72 pe; supervisors yahan approve.
 - Sets mein component single SKUs store (store split bina re-tag)
 - Refresh from UC (daily + on-demand)
 
-**C72 Map EAN lookup yahi master se.**
+**C72 Map:** USN lookup → Unicommerce/backend; product master (EAN/SKU) yahi sync se.
 
 ---
 
@@ -346,8 +346,8 @@ Sync real-time jab API allow; warna ≤2h. Failures queue + retry; ops yahan fix
 
 | Screen | Start with | End result |
 |--------|------------|------------|
-| Map | EAN + 1 RFID | 1 unit mapped |
-| Bulk map | 1 EAN + N RFID | N units mapped |
+| Map | USN + 1 RFID | 1 unit mapped (`USN ↔ RFID`) |
+| Bulk map | N× (USN + RFID) | N pairs mapped |
 | De-link | RFID | Tag free + history |
 | Search | RFID | Product details |
 | Locate | SKU/EAN/USN | Units by bin + Find |
@@ -366,7 +366,7 @@ Sync real-time jab API allow; warna ≤2h. Failures queue + retry; ops yahan fix
 | BAG001 | Cabin Bag 20" (single) |
 | SET3-1042 | Travel set of 3 |
 | EAN 890123456 | BAG001 barcode |
-| USN000123 | Sample unit serial |
+| USN000123 | Sample factory unit serial (pre-linked to SKU in UC) |
 | E280…3456 | Sample RFID EPC |
 | WH-01 | Mumbai Warehouse |
 | ST-05 | Bandra Store |
@@ -378,10 +378,11 @@ Sync real-time jab API allow; warna ≤2h. Failures queue + retry; ops yahan fix
 
 # Related docs in chat (concepts)
 
-- **EAN** = product type (master / Unicommerce)  
-- **RFID** = physical chip  
-- **USN** = unit ID (usually auto on map save)  
-- Mapping happens on **Map / Bulk map**, not merely because chip exists on arrival  
+- **EAN** = product type barcode (master / Unicommerce)  
+- **SKU** = product code; USN pehle se SKU se linked (Unicommerce)  
+- **RFID** = physical chip on the unit  
+- **USN** = unit serial from factory (pre-generated; not allocated by RFID app)  
+- Mapping on **Map / Bulk map** = link `USN ↔ RFID`; arrival alone does not create the link  
 
 ---
 

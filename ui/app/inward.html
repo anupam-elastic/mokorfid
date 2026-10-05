@@ -53,8 +53,8 @@
 
           <div class="scan-zone active">
             <div class="scan-ico">📦</div>
-            <p>Scan carton / unit RFIDs</p>
-            <p class="hint">Expected-list match · extras shown apart</p>
+            <p>Scan unit <strong>USN</strong> (or mapped RFID)</p>
+            <p class="hint">Match PO expected USNs · extras shown apart</p>
           </div>
 
           <a class="btn btn-primary btn-block mt-auto" href="putaway.html">Submit GRN → Putaway</a>
@@ -71,7 +71,7 @@
         <h2>Inward</h2>
         <ol>
           <li>Open GRN / PO from Unicommerce.</li>
-          <li>Bulk-scan received units against expected list.</li>
+          <li>Bulk-scan received <strong>USNs</strong> (or already-mapped RFIDs) against PO expected list.</li>
           <li>Flag <strong>short</strong> or <strong>excess</strong>.</li>
           <li>On submit → sync session to Unicommerce.</li>
         </ol>

@@ -23,10 +23,10 @@
             <a class="btn btn-ghost btn-sm" href="bulk-map.html">Bulk</a>
           </div>
           <div class="screen-title">Map RFID</div>
-          <p class="screen-sub">Link USN → RFID → SKU</p>
+          <p class="screen-sub">USN → product · then link RFID</p>
 
           <div class="step-pills">
-            <div class="step-pill done">1 EAN</div>
+            <div class="step-pill done">1 USN</div>
             <div class="step-pill current">2 RFID</div>
             <div class="step-pill">3 Save</div>
           </div>
@@ -37,6 +37,7 @@
               <h3>Cabin Bag 20"</h3>
               <div class="sku-code">BAG001</div>
               <div class="attrs">
+                <span class="chip">USN000123</span>
                 <span class="chip">EAN 890123456</span>
                 <span class="chip">Black</span>
                 <span class="chip">Single</span>
@@ -51,12 +52,12 @@
           </div>
 
           <div class="card">
-            <div class="dim" style="font-size: 11px; margin-bottom: 4px">Last read (preview)</div>
+            <div class="dim" style="font-size: 11px; margin-bottom: 4px">Last RFID read</div>
             <div class="mono" style="font-size: 12px; color: var(--teal)">E280689400123456</div>
-            <div class="muted" style="font-size: 12px; margin-top: 4px">USN will be: USN000123</div>
+            <div class="muted" style="font-size: 12px; margin-top: 4px">Link to USN000123 · BAG001</div>
           </div>
 
-          <div class="alert alert-success">Tag free — ready to map to BAG001</div>
+          <div class="alert alert-success">Tag free — ready to map to USN000123</div>
 
           <a class="btn btn-primary btn-block mt-auto" href="home.html">Save mapping</a>
         </div>
@@ -71,13 +72,13 @@
       <aside class="flow-panel">
         <h2>Mapping flow</h2>
         <ol>
-          <li>Scan <strong>EAN barcode</strong> on product/box.</li>
-          <li>App shows SKU, size, colour, pack type.</li>
+          <li>Scan factory <strong>USN barcode</strong> on the unit.</li>
+          <li>Backend → Unicommerce → SKU / product card.</li>
           <li>Scan <strong>RFID</strong> on the physical unit.</li>
-          <li>If tag already mapped → <strong>block</strong> + show current SKU.</li>
-          <li>Else save <strong>USN ↔ RFID ↔ SKU</strong> + location + audit.</li>
+          <li>If USN or RFID already mapped → <strong>block</strong>.</li>
+          <li>Else save <strong>USN ↔ RFID</strong> (+ SKU from Unicommerce) + audit.</li>
         </ol>
-        <p class="next"><strong>Sets:</strong> After EAN, app expects 2 or 3 child tags before save.</p>
+        <p class="next"><strong>USN</strong> arrives pre-generated from factory; app does not allocate it.</p>
       </aside>
     </div>
   </body>

@@ -22,7 +22,7 @@
             <a class="back-link" href="map.html">← Map</a>
           </div>
           <div class="screen-title">Bulk map</div>
-          <p class="screen-sub">One EAN · many RFID · review · save</p>
+          <p class="screen-sub">USN → RFID pairs · review · save</p>
 
           <div class="card card-sku">
             <div class="sku-thumb">🧳</div>
@@ -30,53 +30,59 @@
               <h3>Cabin Bag 20"</h3>
               <div class="sku-code">BAG001</div>
               <div class="attrs">
-                <span class="chip">Expected 10</span>
                 <span class="chip">Carton C-4421</span>
+                <span class="chip">Paired 8 / 10</span>
               </div>
             </div>
           </div>
 
+          <div class="scan-zone active">
+            <div class="scan-ico">▦</div>
+            <p><strong>Next:</strong> scan USN barcode</p>
+            <p class="hint">Then pull trigger for that unit’s RFID</p>
+          </div>
+
           <div class="stat-row">
             <div class="stat matched">
-              <div class="num">10</div>
-              <div class="lbl">Found</div>
+              <div class="num">8</div>
+              <div class="lbl">Paired</div>
             </div>
             <div class="stat">
               <div class="num" style="color: var(--text)">10</div>
               <div class="lbl">Expected</div>
             </div>
-            <div class="stat extra">
-              <div class="num">3</div>
-              <div class="lbl">Nearby</div>
+            <div class="stat missing">
+              <div class="num">2</div>
+              <div class="lbl">Pending</div>
             </div>
           </div>
 
-          <p class="section-label">Review before save (untick strays)</p>
+          <p class="section-label">Pairs ready to save</p>
           <div class="list">
             <div class="list-item">
               <span class="check"></span>
               <div>
-                <div class="epc">E280…3456</div>
-                <div class="dim" style="font-size: 11px">RSSI −42 · unmapped</div>
+                <div class="epc">USN000123 ↔ E280…3456</div>
+                <div class="dim" style="font-size: 11px">BAG001 · free tag</div>
               </div>
             </div>
             <div class="list-item">
               <span class="check"></span>
               <div>
-                <div class="epc">E280…3457</div>
-                <div class="dim" style="font-size: 11px">RSSI −45 · unmapped</div>
+                <div class="epc">USN000124 ↔ E280…3457</div>
+                <div class="dim" style="font-size: 11px">BAG001 · free tag</div>
               </div>
             </div>
             <div class="list-item" style="opacity: 0.55">
               <span class="check" style="background: transparent; border-color: var(--border-strong)"></span>
               <div>
-                <div class="epc">E280…9912</div>
-                <div class="dim" style="font-size: 11px">Already mapped BAG005 · skipped</div>
+                <div class="epc">USN000130 ↔ E280…9912</div>
+                <div class="dim" style="font-size: 11px">RFID already mapped · skipped</div>
               </div>
             </div>
           </div>
 
-          <a class="btn btn-primary btn-block mt-auto" href="home.html">Map 10 tags</a>
+          <a class="btn btn-primary btn-block mt-auto" href="home.html">Save 8 pairs</a>
         </div>
         <nav class="bottom-nav">
           <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
@@ -87,12 +93,12 @@
         </nav>
       </div>
       <aside class="flow-panel">
-        <h2>Bulk + stray control</h2>
+        <h2>Bulk + pairs</h2>
         <ol>
-          <li>Scan one EAN for the carton SKU.</li>
-          <li>Reader power drops; only <strong>unmapped</strong> tags accepted.</li>
-          <li>Shows <strong>expected / found / extra nearby</strong>.</li>
-          <li>User unticks strays, then confirms one save.</li>
+          <li>For each unit: scan <strong>USN</strong> → fetch SKU from backend.</li>
+          <li>Scan that unit’s <strong>RFID</strong> (low power · stray kam).</li>
+          <li>Build list of <strong>USN ↔ RFID</strong> pairs.</li>
+          <li>Skip already-mapped USN/RFID; untick bad pairs; one save.</li>
         </ol>
         <p class="next"><strong>Also:</strong> CSV upload for vendor pre-tagged stock (admin/ops).</p>
       </aside>
