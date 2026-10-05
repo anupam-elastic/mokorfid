@@ -1,20 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Moko RFID</string>
-    <string name="header_title">Moko RFID</string>
-    <string name="scan_hint_title">Pull trigger — scan RFID tag</string>
-    <string name="scan_hint_sub">Single-tag mode · strongest signal only</string>
-    <string name="last_read">Last read</string>
-    <string name="epc_placeholder">—</string>
-    <string name="rssi_label">RSSI</string>
-    <string name="btn_scan">Scan RFID</string>
+
+    <!-- Home -->
+    <string name="home_title">Map testing</string>
+    <string name="home_subtitle">Choose a mapping flow</string>
+    <string name="home_trigger_hint">Pull trigger to quick-scan USN, then RFID</string>
+    <string name="home_scanning">Scanning USN + RFID…</string>
+    <string name="home_scanning_usn">Scanning USN…</string>
+    <string name="home_scanning_rfid">Scanning RFID…</string>
+    <string name="home_scan_busy">A scan is ongoing — try after a few secs</string>
+    <string name="home_result_usn">USN</string>
+    <string name="home_result_rfid">RFID</string>
+    <string name="home_result_power">Scanned at %1$d dBm</string>
+    <string name="home_result_rssi">RSSI %1$s</string>
+    <string name="home_no_scan">No USN or RFID found</string>
+    <string name="tile_single_title">Single mapping</string>
+    <string name="tile_single_desc">USN barcode → RFID tag</string>
+    <string name="tile_bulk_title">Bulk mapping</string>
+    <string name="tile_bulk_desc">Multiple USN ↔ RFID pairs</string>
+
+    <!-- Single map -->
+    <string name="single_map_title">Single mapping</string>
+    <string name="single_map_connecting">Starting scanners…</string>
+    <string name="single_map_waiting_usn">Waiting for USN — scan barcode</string>
+    <string name="single_map_usn_idle">USN scan paused — pull trigger to scan again</string>
+    <string name="single_map_usn_timeout">USN scan timed out (10s). Pull trigger to try again.</string>
+    <string name="single_map_waiting_rfid">Waiting for RFID — hold tag near reader</string>
+    <string name="single_map_rfid_power">Scanning RFID @ %1$d dBm</string>
+    <string name="single_map_rfid_power_level">%1$d dBm</string>
+    <string name="single_map_rfid_power_locked">%1$d dBm ✓</string>
+    <string name="single_map_waiting_uhf">Waiting for UHF module…</string>
+    <string name="single_map_hint_save">USN and RFID ready — tap Save</string>
+    <string name="single_map_step_usn_connecting">Connecting barcode…</string>
+    <string name="single_map_step_usn_scanning">Scanning USN now</string>
+    <string name="single_map_step_usn_idle">Ready — pull trigger to scan USN</string>
+    <string name="single_map_step_usn_done">USN captured</string>
+    <string name="single_map_usn_countdown">%1$ds</string>
+    <string name="single_map_starting_rfid">Starting RFID scan…</string>
+    <string name="single_map_step_rfid_locked">After USN scan</string>
+    <string name="single_map_step_rfid_connecting">Waiting for UHF…</string>
+    <string name="single_map_step_rfid_scanning">Scanning RFID now</string>
+    <string name="single_map_step_rfid_done">RFID captured</string>
+    <string name="single_map_set_title">Select set</string>
+    <string name="single_map_set_subtitle">How many RFID tags for this USN?</string>
+    <string name="single_map_set_1">Set of 1</string>
+    <string name="single_map_set_2">Set of 2</string>
+    <string name="single_map_set_3">Set of 3</string>
+    <string name="single_map_choose_set">USN captured — choose set size</string>
+    <string name="single_map_rfid_progress">RFID %1$d of %2$d</string>
+    <string name="single_map_step_rfid_progress">Scanning RFID %1$d / %2$d</string>
+    <string name="single_map_hint_save_multi">USN and %1$d RFID ready — tap Save</string>
+    <string name="label_usn">USN</string>
+    <string name="label_rfid">RFID</string>
+    <string name="hint_usn_scanning">Point at USN barcode…</string>
+    <string name="hint_usn_idle">No USN yet</string>
+    <string name="hint_rfid_locked">—</string>
+    <string name="hint_rfid_waiting">Hold RFID tag near reader…</string>
     <string name="btn_clear">Clear</string>
-    <string name="status_connecting">Connecting UHF…</string>
-    <string name="status_online">UHF ON</string>
-    <string name="status_offline">UHF OFF</string>
-    <string name="status_scanning">Scanning…</string>
-    <string name="toast_init_fail">UHF init failed. Run on a C72 device.</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_back">← Back</string>
+    <string name="rssi_label">RSSI</string>
+    <string name="toast_save_demo">Save (demo only)</string>
     <string name="toast_not_ready">UHF not ready</string>
-    <string name="toast_no_tag">No tag found. Hold closer and try again.</string>
+    <string name="toast_uhf_connecting">Connecting UHF…</string>
+    <string name="toast_barcode_not_ready">Barcode not ready</string>
     <string name="toast_busy">Scan already running</string>
+    <string name="usn_reject_ean_title">Not a USN</string>
+    <string name="usn_reject_ean_message">This barcode looks like a product EAN (starts with 890444450), not a USN. Please scan the USN again.</string>
+    <string name="btn_scan_again">Scan again</string>
+
+    <!-- Bulk -->
+    <string name="bulk_map_title">Bulk mapping</string>
+    <string name="bulk_coming_soon">Coming soon</string>
+    <string name="bulk_coming_soon_sub">Bulk USN ↔ RFID pairing will land here.</string>
+
+    <!-- Status -->
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_ready">Ready</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_scanning">Scanning…</string>
+    <string name="status_scanning_usn">Scanning USN…</string>
+    <string name="status_scanning_rfid">Scanning RFID…</string>
+    <string name="status_waiting_usn">Waiting for USN</string>
+    <string name="status_waiting_rfid">Waiting for RFID</string>
 </resources>

@@ -1,0 +1,24 @@
+---
+description: After deploying Android builds to C72, force-stop, restart, and ensure home-screen icon
+alwaysApply: true
+---
+
+# C72 deploy: restart app + home screen icon after install
+
+Whenever you install/deploy a new `mokoapp` build to the Chainway C72 (or any connected device):
+
+1. Install with Gradle (`./gradlew :app:installDebug`) or `adb install`, targeting the C72 serial when multiple devices are connected.
+2. **Force-stop** the running app, then **start** it again so the new process loads the new build.
+3. Starting `MainActivity` also runs `HomeScreenHelper.ensureLauncherShortcut()` (legacy INSTALL_SHORTCUT + pin request). If the launcher shows an “Add to Home screen” prompt, that is expected — accept it once.
+
+```bash
+ADB="$HOME/Library/Android/sdk/platform-tools/adb"
+# Prefer C72 if present
+SERIAL=$($ADB devices -l | awk '/model:C72/{print $1; exit}')
+SERIAL=${SERIAL:-$($ADB devices | awk '/\tdevice$/{print $1; exit}')}
+$ADB -s "$SERIAL" install -r mokoapp/app/build/outputs/apk/debug/app-debug.apk
+$ADB -s "$SERIAL" shell am force-stop com.mokobara.mokoapp
+$ADB -s "$SERIAL" shell am start -n com.mokobara.mokoapp/.MainActivity
+```
+
+Do this every time after a successful deploy — do not leave the old process running.

@@ -9,6 +9,10 @@
     <color name="amber">#C48A00</color>
     <color name="amber_border">#E6C35C</color>
     <color name="danger">#B42318</color>
+    <!-- RFID power confidence: lower dBm = closer / stronger read -->
+    <color name="rfid_power_good">#1B7A3D</color>
+    <color name="rfid_power_mid">#D97706</color>
+    <color name="rfid_power_high">#B42318</color>
     <color name="online">#0F7A5A</color>
     <color name="offline">#98A29C</color>
     <color name="scan_border">#0F7A5A</color>
