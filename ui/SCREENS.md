@@ -22,6 +22,7 @@ Open hub: [`index.html`](index.html) → **C72 Handheld App** ya **Web Admin Por
 ```
 Login → Home
   → Inward (GRN)
+  → Warehouse bulk scan (RFID list capture)
   → Map / Bulk map (USN ↔ RFID link)
   → Putaway (bin)
   → Search / Locate / Count (ops)
@@ -78,7 +79,7 @@ Admin parallel: Products · Locations · Users · Devices · Count approvals · 
 |-------|---------|
 | Tag & identity | Map, Bulk map, De-link, Search |
 | Find & count | Locate, Stock count |
-| Warehouse | Inward, Putaway, Picking, Transfer |
+| Warehouse | Warehouse bulk scan, Inward, Putaway, Picking, Transfer |
 
 Bottom nav: Home · Map · Search · Count · More.
 
@@ -89,6 +90,8 @@ Bottom nav: Home · Map · Search · Count · More.
 **Kaam:** Factory USN ko physical RFID se link karna. SKU Unicommerce se aata hai.
 
 **Steps:** `1 USN` → `2 RFID` → `3 Save`
+
+**Header action:** **Continuous scan** → `warehouse-bulk-scan.html`
 
 **Flow:**
 1. USN barcode scan (factory label — pehle se generated)
@@ -124,7 +127,27 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 5. `delink.html` — De-link RFID
+## 5. `warehouse-bulk-scan.html` — Warehouse bulk scan
+
+**Kaam:** Warehouse me area walk karke kai RFID tags bulk read karna — list + total count, phir save.
+
+**Screen pe:**
+- Top: **Total RFIDs** (e.g. 1000) — unique / de-duped
+- Scan zone: pull trigger for continuous bulk RFID
+- Scrollable **RFID list** (EPCs)
+- Bottom: **Save N RFIDs**
+
+**Flow:**
+1. Home → Warehouse bulk scan
+2. Pull trigger — tags stream in, de-duped live
+3. Review count + list
+4. Save session tag list
+
+**Note:** RFID-only capture. `USN ↔ RFID` pairing ke liye **Bulk map** use karo.
+
+---
+
+## 6. `delink.html` — De-link RFID
 
 **Kaam:** Galat / damaged mapping todna; tag free for re-map.
 
@@ -142,7 +165,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 6. `search.html` — Search (Tag → Product)
+## 7. `search.html` — Search (Tag → Product)
 
 **Kaam:** Haath mein RFID → product kaunsa?
 
@@ -159,7 +182,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 7. `locate.html` — Locate + Find
+## 8. `locate.html` — Locate + Find
 
 **Kaam:** SKU/EAN/USN se units kahan hain + physical Find.
 
@@ -174,7 +197,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 8. `count.html` — Stock count
+## 9. `count.html` — Stock count
 
 **Kaam:** Area walk + bulk RFID vs expected stock.
 
@@ -189,7 +212,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 9. `inward.html` — Inward (GRN)
+## 10. `inward.html` — Inward (GRN)
 
 **Kaam:** Vendor/PO ke against receive — short / excess.
 
@@ -205,7 +228,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 10. `putaway.html` — Putaway
+## 11. `putaway.html` — Putaway
 
 **Kaam:** Mapped units ko bin pe rakhna → `location_id` update.
 
@@ -219,7 +242,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 11. `pick.html` — Picking
+## 12. `pick.html` — Picking
 
 **Kaam:** Order / transfer lines ke against sahi SKU pick.
 
@@ -235,7 +258,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 ---
 
-## 12. `transfer.html` — Stock transfer
+## 13. `transfer.html` — Stock transfer
 
 **Kaam:** Warehouse → Store movement track.
 
@@ -258,7 +281,7 @@ Bottom nav: Home · Map · Search · Count · More.
 
 # Part C — Web Admin (`ui/admin/`)
 
-## 13. `dashboard.html` — Dashboard
+## 14. `dashboard.html` — Dashboard
 
 **Kaam:** Ops health snapshot.
 
@@ -269,7 +292,7 @@ Operators C72 pe; supervisors yahan approve.
 
 ---
 
-## 14. `products.html` — Product master
+## 15. `products.html` — Product master
 
 **Kaam:** SKU / EAN / pack / components (Unicommerce sync).
 
@@ -284,7 +307,7 @@ Operators C72 pe; supervisors yahan approve.
 
 ---
 
-## 15. `locations.html` — Location master
+## 16. `locations.html` — Location master
 
 **Kaam:** Site → Area → Zone/Rack → Bin tree.
 
@@ -294,7 +317,7 @@ Synced from UC / POSx on change.
 
 ---
 
-## 16. `users.html` — Users & roles
+## 17. `users.html` — Users & roles
 
 | Role | Access |
 |------|--------|
@@ -306,7 +329,7 @@ Users ko sites assign; invite / activate / deactivate.
 
 ---
 
-## 17. `devices.html` — C72 devices
+## 18. `devices.html` — C72 devices
 
 **Kaam:** Handheld register, block, reader settings.
 
@@ -316,7 +339,7 @@ Users ko sites assign; invite / activate / deactivate.
 
 ---
 
-## 18. `count-tasks.html` — Count tasks & approvals
+## 19. `count-tasks.html` — Count tasks & approvals
 
 **Kaam:** Task create → operator scan → variance review → Approve.
 
@@ -328,7 +351,7 @@ App Count **Submit** prototype mein yahan land karta hai.
 
 ---
 
-## 19. `integration-logs.html` — Integration queue & logs
+## 20. `integration-logs.html` — Integration queue & logs
 
 **Kaam:** Unicommerce + POSx sync health.
 
@@ -348,6 +371,7 @@ Sync real-time jab API allow; warna ≤2h. Failures queue + retry; ops yahan fix
 |--------|------------|------------|
 | Map | USN + 1 RFID | 1 unit mapped (`USN ↔ RFID`) |
 | Bulk map | N× (USN + RFID) | N pairs mapped |
+| Warehouse bulk scan | Bulk RFID | Saved unique EPC list + count |
 | De-link | RFID | Tag free + history |
 | Search | RFID | Product details |
 | Locate | SKU/EAN/USN | Units by bin + Find |

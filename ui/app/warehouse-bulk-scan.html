@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Warehouse Bulk Scan — C72</title>
+    <link rel="stylesheet" href="../css/app.css" />
+    <style>
+      .wbs-screen {
+        gap: 0;
+        overflow: hidden;
+        padding-bottom: 12px;
+      }
+      .wbs-body {
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .wbs-screen .screen-title {
+        font-size: 18px;
+      }
+      .wbs-screen .screen-sub {
+        margin-bottom: 2px;
+      }
+      .wbs-scan {
+        padding: 8px 10px;
+        flex-shrink: 0;
+      }
+      .wbs-scan .scan-ico {
+        font-size: 18px;
+        margin-bottom: 2px;
+      }
+      .wbs-scan p {
+        font-size: 12px;
+      }
+      .wbs-scan .hint {
+        margin-top: 2px;
+      }
+      .wbs-count {
+        text-align: center;
+        padding: 8px 10px;
+        flex-shrink: 0;
+      }
+      .wbs-count .num {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--teal);
+        margin: 0;
+        line-height: 1.1;
+      }
+      .wbs-list .list-item {
+        padding: 7px 10px;
+      }
+      .wbs-list-wrap {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .wbs-list {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        padding-right: 2px;
+      }
+      .wbs-save-bar {
+        flex-shrink: 0;
+        margin-top: 16px;
+        padding-top: 12px;
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-page">
+      <div class="phone">
+        <div class="phone-notch">
+          <span class="time">09:22</span>
+          <span>C72 · 74%</span>
+        </div>
+        <div class="status-bar">
+          <span class="site">WH-01 · Floor scan</span>
+          <span class="badge badge-teal">Scanning</span>
+        </div>
+        <div class="screen wbs-screen">
+          <div class="wbs-body">
+            <div class="header-row">
+              <a class="back-link" href="home.html">← Home</a>
+            </div>
+            <div class="screen-title">Warehouse bulk scan</div>
+            <p class="screen-sub">Bulk RFID reads · review · save</p>
+
+            <div class="scan-zone active wbs-scan">
+              <div class="scan-ico">📡</div>
+              <p><strong>Pull trigger</strong> — bulk scan RFID tags</p>
+              <p class="hint">Walk the area · tags appear in the list below</p>
+            </div>
+
+            <div class="card wbs-count">
+              <div class="muted" style="font-size: 12px">Total RFIDs</div>
+              <div class="mono num">1000</div>
+              <div class="dim" style="font-size: 11px">Unique tags · de-duped live</div>
+            </div>
+
+            <div class="wbs-list-wrap">
+              <p class="section-label">Scanned RFID list</p>
+              <div class="list wbs-list">
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E2801160600002034A5B1C01</div>
+                    <div class="dim" style="font-size: 11px">#1000 · just now</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E2801160600002034A5B1C02</div>
+                    <div class="dim" style="font-size: 11px">#999 · just now</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E2801160600002034A5B1C03</div>
+                    <div class="dim" style="font-size: 11px">#998 · 1s ago</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E2801160600002034A5B1C04</div>
+                    <div class="dim" style="font-size: 11px">#997 · 1s ago</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E2801160600002034A5B1C05</div>
+                    <div class="dim" style="font-size: 11px">#996 · 2s ago</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E280…9912</div>
+                    <div class="dim" style="font-size: 11px">#995 · 2s ago</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E280…3456</div>
+                    <div class="dim" style="font-size: 11px">#994 · 3s ago</div>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div style="flex: 1">
+                    <div class="epc">E280…1122</div>
+                    <div class="dim" style="font-size: 11px">#1 · earlier</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wbs-save-bar">
+            <a class="btn btn-primary btn-block" href="home.html">Save 1000 RFIDs</a>
+          </div>
+        </div>
+        <nav class="bottom-nav">
+          <a href="home.html"><span class="nav-ico">⌂</span>Home</a>
+          <a href="map.html"><span class="nav-ico">🔗</span>Map</a>
+          <a href="search.html"><span class="nav-ico">🔍</span>Search</a>
+          <a href="count.html"><span class="nav-ico">📊</span>Count</a>
+          <a href="delink.html"><span class="nav-ico">···</span>More</a>
+        </nav>
+      </div>
+      <aside class="flow-panel">
+        <h2>Warehouse bulk scan</h2>
+        <ol>
+          <li><strong>Pull trigger</strong> at top — start bulk RFID reads.</li>
+          <li>Center shows live <strong>total count</strong>.</li>
+          <li>Scrollable list shows unique EPCs (3–4 visible at a time).</li>
+          <li><strong>Save</strong> stores the session tag list.</li>
+        </ol>
+        <p class="next"><strong>Note:</strong> RFID-only capture — not USN↔RFID pairing (see Bulk map).</p>
+      </aside>
+    </div>
+  </body>
+</html>
