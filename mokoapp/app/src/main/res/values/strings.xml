@@ -17,7 +17,7 @@
     <string name="home_no_scan">No USN or RFID found</string>
     <string name="tile_single_title">Single mapping</string>
     <string name="tile_single_desc">USN barcode → RFID tag</string>
-    <string name="tile_bulk_title">Bulk mapping</string>
+    <string name="tile_bulk_title">Continuous Mapping</string>
     <string name="tile_bulk_desc">Multiple USN ↔ RFID pairs</string>
 
     <!-- Single map -->
@@ -71,7 +71,7 @@
     <string name="btn_scan_again">Scan again</string>
 
     <!-- Bulk -->
-    <string name="bulk_map_title">Bulk mapping</string>
+    <string name="bulk_map_title">Continuous Mapping</string>
     <string name="bulk_coming_soon">Coming soon</string>
     <string name="bulk_coming_soon_sub">Bulk USN ↔ RFID pairing will land here.</string>
 
